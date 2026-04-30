@@ -1,8 +1,11 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import AboutSection from "@/components/AboutSection";
+import FocusAreasSection from "@/components/FocusAreasSection";
+import NetworkGraph from "@/components/NetworkGraph";
 import ProjectsSection from "@/components/ProjectsSection";
-import Timeline from "@/components/Timeline";
+import ExperienceSection from "@/components/ExperienceSection";
+import AwardsSection from "@/components/AwardsSection";
 import InterestsSection from "@/components/InterestsSection";
 import WritingSection from "@/components/WritingSection";
 import ContactSection from "@/components/ContactSection";
@@ -15,8 +18,11 @@ export default function Home() {
       <main className="flex-1">
         <Hero />
         <AboutSection />
+        <FocusAreasSection />
+        <NetworkGraph />
         <ProjectsSection />
-        <Timeline />
+        <ExperienceSection />
+        <AwardsSection />
         <InterestsSection />
         <WritingSection />
         <ContactSection />

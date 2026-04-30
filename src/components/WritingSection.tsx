@@ -8,7 +8,7 @@ export default function WritingSection() {
       <div className="mx-auto max-w-3xl px-6">
         <SectionHeading
           title="Writing & Thinking"
-          subtitle="Essays, notes, and reflections — forthcoming."
+          subtitle="Notes on healthcare systems, AI infrastructure, markets, risk, and public impact."
         />
 
         <div className="space-y-4">
