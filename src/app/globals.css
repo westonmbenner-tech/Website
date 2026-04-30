@@ -141,7 +141,6 @@ button {
 
 .globe-card {
   position: relative;
-  display: grid;
   min-height: clamp(33rem, 64vw, 47rem);
   overflow: hidden;
   border-radius: 2rem;
@@ -173,6 +172,13 @@ button {
   min-height: 28rem;
   place-items: center;
   color: #9eb3ca;
+}
+
+.globe-viewport {
+  position: relative;
+  display: grid;
+  min-height: inherit;
+  place-items: center;
 }
 
 .country-tooltip {

@@ -36,8 +36,10 @@ const getFeatureCentroid = (country: object) => {
 
 export function TravelGlobe() {
   const globeRef = useRef<GlobeMethods | undefined>(undefined);
+  const globeCardRef = useRef<HTMLDivElement | null>(null);
   const [hoveredCountry, setHoveredCountry] = useState<CountryFeature | null>(null);
   const [selectedCountry, setSelectedCountry] = useState<CountryDetails | null>(null);
+  const [globeSize, setGlobeSize] = useState({ width: 760, height: 640 });
 
   const countries = useMemo(() => {
     const topology = worldAtlas;
@@ -104,6 +106,27 @@ export function TravelGlobe() {
     globeRef.current?.pointOfView({ lat: 24, lng: -22, altitude: 1.85 }, 900);
   }, []);
 
+  useEffect(() => {
+    const card = globeCardRef.current;
+    if (!card) {
+      return;
+    }
+
+    const updateSize = () => {
+      const rect = card.getBoundingClientRect();
+      setGlobeSize({
+        width: Math.max(320, Math.floor(rect.width)),
+        height: Math.max(460, Math.floor(rect.height)),
+      });
+    };
+
+    updateSize();
+    const observer = new ResizeObserver(updateSize);
+    observer.observe(card);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section className="travel-section" aria-labelledby="travel-heading">
       <div className="travel-shell" onClick={() => setSelectedCountry(null)}>
@@ -120,6 +143,7 @@ export function TravelGlobe() {
         <div className="travel-stage">
           <div
             className="globe-card"
+            ref={globeCardRef}
             onMouseEnter={() => {
               const controls = globeRef.current?.controls();
               if (controls) controls.autoRotateSpeed = 0.16;
@@ -132,54 +156,44 @@ export function TravelGlobe() {
             onClick={(event) => event.stopPropagation()}
           >
             <div className="globe-aura" />
-            <Globe
-              ref={globeRef}
-              width={Math.min(
-                760,
-                typeof window === "undefined" ? 760 : window.innerWidth - 32,
-              )}
-              height={Math.min(
-                640,
-                typeof window === "undefined" ? 640 : window.innerWidth * 0.95,
-              )}
-              backgroundColor="rgba(0,0,0,0)"
-              globeImageUrl=""
-              showAtmosphere
-              atmosphereColor="#6d8fb6"
-              atmosphereAltitude={0.16}
-              polygonsData={countries}
-              polygonCapColor={getPolygonColor}
-              polygonSideColor={() => "rgba(8, 12, 20, 0.72)"}
-              polygonStrokeColor={() => "rgba(208, 220, 232, 0.16)"}
-              polygonAltitude={(country: object) =>
-                hoveredCountry && getCountryName(country) === getCountryName(hoveredCountry)
-                  ? 0.018
-                  : isVisitedCountry(getCountryName(country))
-                    ? 0.01
-                    : 0.004
-              }
-              onPolygonHover={(country: object | null) =>
-                setHoveredCountry((country as CountryFeature | null) ?? null)
-              }
-              onPolygonClick={handleCountryClick}
-              polygonsTransitionDuration={180}
-              htmlElementsData={hoveredCountry ? [hoveredCountry] : []}
-              htmlLat={(country: object) => {
-                const feature = country as CountryFeature;
-                return feature.properties.name === "United States of America" ? 39 : 18;
-              }}
-              htmlLng={(country: object) => {
-                const feature = country as CountryFeature;
-                return feature.properties.name === "United States of America" ? -98 : 10;
-              }}
-              htmlElement={(country: object) => {
-                const name = getCountryName(country);
-                const tooltip = document.createElement("div");
-                tooltip.className = "country-tooltip";
-                tooltip.textContent = `${name}${isVisitedCountry(name) ? " · Visited" : ""}`;
-                return tooltip;
-              }}
-            />
+            <div className="globe-viewport">
+              <Globe
+                ref={globeRef}
+                width={globeSize.width}
+                height={globeSize.height}
+                backgroundColor="rgba(0,0,0,0)"
+                globeImageUrl=""
+                showAtmosphere
+                atmosphereColor="#6d8fb6"
+                atmosphereAltitude={0.16}
+                polygonsData={countries}
+                polygonCapColor={getPolygonColor}
+                polygonSideColor={() => "rgba(8, 12, 20, 0.72)"}
+                polygonStrokeColor={() => "rgba(208, 220, 232, 0.16)"}
+                polygonAltitude={(country: object) =>
+                  hoveredCountry && getCountryName(country) === getCountryName(hoveredCountry)
+                    ? 0.018
+                    : isVisitedCountry(getCountryName(country))
+                      ? 0.01
+                      : 0.004
+                }
+                onPolygonHover={(country: object | null) =>
+                  setHoveredCountry((country as CountryFeature | null) ?? null)
+                }
+                onPolygonClick={handleCountryClick}
+                polygonsTransitionDuration={180}
+                htmlElementsData={hoveredCountry ? [hoveredCountry] : []}
+                htmlLat={(country: object) => getFeatureCentroid(country).lat}
+                htmlLng={(country: object) => getFeatureCentroid(country).lng}
+                htmlElement={(country: object) => {
+                  const name = getCountryName(country);
+                  const tooltip = document.createElement("div");
+                  tooltip.className = "country-tooltip";
+                  tooltip.textContent = `${name}${isVisitedCountry(name) ? " · Visited" : ""}`;
+                  return tooltip;
+                }}
+              />
+            </div>
             <div className="globe-footer">
               <span>Click and drag to explore</span>
               <div className="legend" aria-label="Travel globe legend">
