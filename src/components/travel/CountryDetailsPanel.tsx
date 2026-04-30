@@ -42,7 +42,7 @@ export function CountryDetailsPanel({
         {isUnitedStates ? (
           <div>
             <dt>States visited</dt>
-            <dd>
+            <dd className="details-panel__count">
               {STATE_TOTAL} of 50
             </dd>
           </div>

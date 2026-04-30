@@ -325,6 +325,14 @@ button {
 .details-panel__meta dd {
   margin: 0;
   color: #dff9ff;
+  font-weight: 800;
+}
+
+.details-panel__metric {
+  display: block;
+  color: #eefbff;
+  font-size: 1.25rem;
+  letter-spacing: -0.03em;
 }
 
 .details-panel__note {

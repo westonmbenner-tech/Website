@@ -66,6 +66,7 @@ export function TravelGlobe() {
   const [hoveredCountry, setHoveredCountry] = useState<CountryFeature | null>(null);
   const [selectedCountry, setSelectedCountry] = useState<CountryDetails | null>(null);
   const [globeSize, setGlobeSize] = useState(getResponsiveGlobeSize);
+  const [isGlobeReady, setIsGlobeReady] = useState(false);
 
   const countries = useMemo(() => {
     const topology = worldAtlas;
@@ -202,6 +203,7 @@ export function TravelGlobe() {
                 showAtmosphere
                 atmosphereColor="#6d8fb6"
                 atmosphereAltitude={0.16}
+                onGlobeReady={() => setIsGlobeReady(true)}
                 polygonsData={countries}
                 polygonCapColor={getPolygonColor}
                 polygonSideColor={() => "rgba(8, 12, 20, 0.72)"}
@@ -230,6 +232,7 @@ export function TravelGlobe() {
                 }}
               />
             </div>
+            {!isGlobeReady ? <div className="globe-loader">Preparing the globe...</div> : null}
             <div className="globe-footer">
               <span>Click and drag to explore</span>
               <div className="legend" aria-label="Travel globe legend">
