@@ -101,6 +101,21 @@ button {
   margin-bottom: clamp(1rem, 3vw, 1.35rem);
 }
 
+.travel-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  margin-bottom: clamp(1rem, 3vw, 1.35rem);
+}
+
+.quick-picks span,
+.quick-picks-label {
+  margin: 0;
+  color: #92a5bb;
+  font-size: 0.86rem;
+}
+
 .travel-stat-card,
 .globe-card,
 .details-panel {
@@ -141,7 +156,8 @@ button {
 
 .globe-card {
   position: relative;
-  min-height: clamp(33rem, 64vw, 47rem);
+  display: grid;
+  min-height: 42rem;
   overflow: hidden;
   border-radius: 2rem;
 }
@@ -177,7 +193,7 @@ button {
 .globe-viewport {
   position: relative;
   display: grid;
-  min-height: inherit;
+  min-height: 42rem;
   place-items: center;
 }
 
@@ -317,7 +333,7 @@ button {
 
 .details-panel__state-list,
 .usa-map__states-list,
-.visited-list {
+.quick-picks {
   display: flex;
   flex-wrap: wrap;
   gap: 0.45rem;
@@ -388,11 +404,11 @@ button {
   overflow: auto;
 }
 
-.visited-list {
-  margin-top: 1rem;
+.quick-picks {
+  margin: 0;
 }
 
-.visited-chip {
+.quick-pick {
   padding: 0.48rem 0.68rem;
   border: 1px solid rgba(139, 170, 202, 0.16);
   border-radius: 999px;
@@ -405,8 +421,8 @@ button {
     transform 180ms ease;
 }
 
-.visited-chip:hover,
-.visited-chip:focus-visible {
+.quick-pick:hover,
+.quick-pick:focus-visible {
   border-color: rgba(116, 197, 216, 0.42);
   background: rgba(88, 170, 199, 0.13);
   transform: translateY(-1px);
@@ -443,8 +459,12 @@ button {
   }
 
   .globe-card {
-    min-height: 29rem;
+    min-height: 31rem;
     border-radius: 1.4rem;
+  }
+
+  .globe-viewport {
+    min-height: 31rem;
   }
 
   .globe-footer {

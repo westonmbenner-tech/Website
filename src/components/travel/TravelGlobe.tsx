@@ -9,7 +9,6 @@ import type { GlobeMethods } from "react-globe.gl";
 import worldAtlas from "world-atlas/countries-50m.json";
 import {
   COUNTRY_ALIASES,
-  GLOBE_COUNTRIES,
   isVisitedCountry,
   travelStats,
 } from "@/data/travelData";
@@ -24,6 +23,34 @@ const Globe = dynamic(() => import("react-globe.gl"), {
 
 type CountryFeature = Feature<Geometry, { name: string }>;
 
+const QUICK_PICK_COUNTRIES = ["Italy", "United States"] as const;
+
+const getResponsiveGlobeSize = () => {
+  if (typeof window === "undefined") {
+    return { width: 760, height: 640 };
+  }
+
+  const width = window.innerWidth;
+  if (width < 680) {
+    return {
+      width: Math.max(320, width - 32),
+      height: Math.max(460, width * 1.05),
+    };
+  }
+
+  if (width < 980) {
+    return {
+      width: Math.min(760, width - 64),
+      height: 620,
+    };
+  }
+
+  return {
+    width: Math.min(760, width - 520),
+    height: 640,
+  };
+};
+
 const normalizeCountryName = (name: string) => COUNTRY_ALIASES[name] ?? name;
 
 const isUnitedStates = (countryName: string) =>
@@ -36,10 +63,9 @@ const getFeatureCentroid = (country: object) => {
 
 export function TravelGlobe() {
   const globeRef = useRef<GlobeMethods | undefined>(undefined);
-  const globeCardRef = useRef<HTMLDivElement | null>(null);
   const [hoveredCountry, setHoveredCountry] = useState<CountryFeature | null>(null);
   const [selectedCountry, setSelectedCountry] = useState<CountryDetails | null>(null);
-  const [globeSize, setGlobeSize] = useState({ width: 760, height: 640 });
+  const [globeSize, setGlobeSize] = useState(getResponsiveGlobeSize);
 
   const countries = useMemo(() => {
     const topology = worldAtlas;
@@ -107,24 +133,14 @@ export function TravelGlobe() {
   }, []);
 
   useEffect(() => {
-    const card = globeCardRef.current;
-    if (!card) {
-      return;
-    }
-
     const updateSize = () => {
-      const rect = card.getBoundingClientRect();
-      setGlobeSize({
-        width: Math.max(320, Math.floor(rect.width)),
-        height: Math.max(460, Math.floor(rect.height)),
-      });
+      setGlobeSize(getResponsiveGlobeSize());
     };
 
     updateSize();
-    const observer = new ResizeObserver(updateSize);
-    observer.observe(card);
+    window.addEventListener("resize", updateSize);
 
-    return () => observer.disconnect();
+    return () => window.removeEventListener("resize", updateSize);
   }, []);
 
   return (
@@ -140,10 +156,30 @@ export function TravelGlobe() {
 
         <TravelStats stats={travelStats} />
 
+        <div className="quick-picks" aria-label="Quick travel selections">
+          <span>Quick picks</span>
+          {QUICK_PICK_COUNTRIES.map((country) => (
+            <button
+              type="button"
+              key={country}
+              className="quick-pick"
+              onClick={(event) => {
+                event.stopPropagation();
+                setSelectedCountry({
+                  name: country,
+                  status: "Visited",
+                  isUnitedStates: country === "United States",
+                });
+              }}
+            >
+              {country}
+            </button>
+          ))}
+        </div>
+
         <div className="travel-stage">
           <div
             className="globe-card"
-            ref={globeCardRef}
             onMouseEnter={() => {
               const controls = globeRef.current?.controls();
               if (controls) controls.autoRotateSpeed = 0.16;
@@ -211,27 +247,6 @@ export function TravelGlobe() {
             selection={selectedCountry}
             onClose={() => setSelectedCountry(null)}
           />
-        </div>
-
-        <p className="visited-list-label">Quick select a visited destination</p>
-        <div className="visited-list" aria-label="Visited countries">
-          {GLOBE_COUNTRIES.map((country) => (
-            <button
-              type="button"
-              key={country}
-              className="visited-chip"
-              onClick={(event) => {
-                event.stopPropagation();
-                setSelectedCountry({
-                  name: country,
-                  status: "Visited",
-                  isUnitedStates: country === "United States",
-                });
-              }}
-            >
-              {country}
-            </button>
-          ))}
         </div>
       </div>
     </section>
