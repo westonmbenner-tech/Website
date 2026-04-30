@@ -2,6 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { geoCentroid } from "d3-geo";
 import { feature } from "topojson-client";
 import type { Feature, FeatureCollection, Geometry } from "geojson";
 import type { GlobeMethods } from "react-globe.gl";
@@ -27,6 +28,11 @@ const normalizeCountryName = (name: string) => COUNTRY_ALIASES[name] ?? name;
 
 const isUnitedStates = (countryName: string) =>
   normalizeCountryName(countryName) === "United States";
+
+const getFeatureCentroid = (country: object) => {
+  const [lng, lat] = geoCentroid(country as CountryFeature);
+  return { lat, lng };
+};
 
 export function TravelGlobe() {
   const globeRef = useRef<GlobeMethods | undefined>(undefined);
@@ -193,6 +199,7 @@ export function TravelGlobe() {
           />
         </div>
 
+        <p className="visited-list-label">Quick select a visited destination</p>
         <div className="visited-list" aria-label="Visited countries">
           {GLOBE_COUNTRIES.map((country) => (
             <button

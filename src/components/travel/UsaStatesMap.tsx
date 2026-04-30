@@ -42,7 +42,7 @@ export function UsaStatesMap({ isPanel = false }: UsaStatesMapProps) {
           <p className="eyebrow">United States</p>
           <h3>{STATE_TOTAL} states visited</h3>
         </div>
-        <span>Click USA on the globe</span>
+        <span>29 of 50</span>
       </div>
 
       <svg

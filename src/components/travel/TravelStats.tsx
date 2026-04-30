@@ -12,6 +12,7 @@ export function TravelStats({ stats }: TravelStatsProps) {
       {stats.map((stat) => (
         <article className="travel-stat-card" key={stat.label}>
           <span className="travel-stat-value">{stat.value}</span>
+          <span className="sr-only"> </span>
           <span className="travel-stat-label">{stat.label}</span>
         </article>
       ))}
