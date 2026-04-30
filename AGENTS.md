@@ -2,13 +2,35 @@
 
 ## Cursor Cloud specific instructions
 
-This repository is currently an empty scaffold — it contains only a `README.md`. There is no source code, no dependency file, no build system, and no application to run.
+This is a Next.js 16 personal portfolio website using TypeScript, Tailwind CSS v4, and the App Router.
 
-### Environment
+### Running the dev server
 
-- Node.js v22 and npm v10 are available in the VM.
-- Python 3.12, git 2.43 are available.
+```
+npm run dev
+```
 
-### When code is added
+The site runs on `http://localhost:3000` by default.
 
-Once source code and a dependency manifest (e.g. `package.json`, `requirements.txt`) are added, the update script should be updated via `SetupVmEnvironment` to install dependencies. Similarly, this file should be updated with build/run/test/lint commands relevant to the new codebase.
+### Key commands
+
+| Action | Command |
+|--------|---------|
+| Dev server | `npm run dev` |
+| Lint | `npm run lint` |
+| Type check | `npx tsc --noEmit` |
+| Production build | `npm run build` |
+
+### Project structure
+
+- `src/app/` — Next.js App Router pages and layout
+- `src/components/` — Reusable React components (Navbar, Hero, ProjectCard, Timeline, etc.)
+- `src/data/` — Typed data arrays (`content.ts`) and TypeScript interfaces (`types.ts`)
+
+Content (projects, timeline entries, interests, writing pieces) is defined in `src/data/content.ts` for easy editing. Types are in `src/data/types.ts`.
+
+### Notes
+
+- Tailwind CSS v4 is used with the `@import "tailwindcss"` syntax in `globals.css` (not the v3 `@tailwind` directives).
+- The site is a single-page app with smooth-scroll navigation. All sections are rendered in `src/app/page.tsx`.
+- Dark theme is hardcoded (not system-preference based). Background is `#0a0a0c`.
