@@ -26,7 +26,7 @@ export default function Hero() {
         {/*
           Mobile: copy first, photo below. md+: photo left (order-1), copy right; columns
           stretch so the image height matches the copy block from Stanford line through CTAs.
-          object-position favors the lower frame to crop sky.
+          object-cover + bottom-weighted position crops sky while filling the frame.
         */}
         <div className="flex flex-col gap-8 text-left md:flex-row md:items-stretch md:justify-center md:gap-4 lg:gap-10">
           <div className="min-w-0 max-w-xl flex-1 pt-0.5 md:order-2">
