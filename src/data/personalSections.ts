@@ -288,7 +288,7 @@ export const fieldNotes: FieldNote[] = [
     id: "fn-markets",
     label: "Markets",
     quote:
-      "Risk is not just what might go wrong; it is what you choose to preserve the ability to do.",
+      "Risk is not only what you avoid, but what you keep possible.",
     body:
       "Balance sheets, liquidity, and tail events are really about optionality — who can still act when conditions break. I like markets as a discipline for thinking about resilience under uncertainty, not only returns.",
   },

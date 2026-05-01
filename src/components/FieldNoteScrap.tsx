@@ -120,11 +120,24 @@ export default function FieldNoteScrap({
               className={toggleButtonClass}
             >
               <p className={labelClass}>Field note · {note.label}</p>
-              {!open ? (
-                <p className={quoteClass}>{note.quote}</p>
-              ) : (
-                <div className={`${bodyClass} min-h-0`}>{note.body}</div>
-              )}
+              {/*
+                Single grid cell so row height is max(quote, body): no layout shift when toggling.
+                Inactive block is opacity-0 + pointer-events-none; aria-hidden mirrors visibility.
+              */}
+              <div className="grid min-w-0 grid-cols-1">
+                <p
+                  className={`${quoteClass} col-start-1 row-start-1 max-w-full self-start ${open ? "pointer-events-none opacity-0" : ""}`}
+                  aria-hidden={open}
+                >
+                  {note.quote}
+                </p>
+                <div
+                  className={`${bodyClass} col-start-1 row-start-1 max-w-full min-h-0 self-start ${!open ? "pointer-events-none opacity-0" : ""}`}
+                  aria-hidden={!open}
+                >
+                  {note.body}
+                </div>
+              </div>
               <p className={hintClass}>Tap to {open ? "fold" : "unfold"}</p>
             </button>
 

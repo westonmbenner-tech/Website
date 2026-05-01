@@ -30,7 +30,7 @@ export default function Hero() {
             width={144}
             height={144}
             priority
-            className="h-28 w-28 shrink-0 rounded-full object-cover shadow-[0_12px_40px_rgba(0,0,0,0.45)] ring-2 ring-white/15 sm:h-32 sm:w-32 lg:h-36 lg:w-36"
+            className="h-28 w-28 shrink-0 rounded-full object-cover object-[50%_88%] shadow-[0_12px_40px_rgba(0,0,0,0.45)] ring-2 ring-white/15 sm:h-32 sm:w-32 lg:h-36 lg:w-36"
           />
 
           <div className="min-w-0 max-w-xl flex-1">

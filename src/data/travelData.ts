@@ -16,9 +16,12 @@ export interface TravelState {
   visited: boolean;
 }
 
+/** Shown for countries and U.S. states not yet visited (panel, legend, map bar). */
+export const TRAVEL_UNVISITED_LABEL = "Hopefully will visit soon!" as const;
+
 export interface CountryDetails {
   name: string;
-  status: "Visited" | "Not yet visited";
+  status: "Visited" | typeof TRAVEL_UNVISITED_LABEL;
   isUnitedStates: boolean;
   /** Curated or API-backed fact sheet when available. */
   facts?: CountryFactSheet;

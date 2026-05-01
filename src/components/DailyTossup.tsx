@@ -182,8 +182,8 @@ function DailyTossupGameplay({
             Daily tossup
           </h3>
           <p className="mt-1 max-w-xl text-sm text-zinc-400">
-            A daily tossup, revealed one word at a time. Each calendar day advances
-            to the next clue in the bank, then cycles through all {total} again.
+            A daily tossup, revealed one word at a time. If you don’t like the
+            question, come back tomorrow!
           </p>
         </div>
         <p className="text-xs text-zinc-500">

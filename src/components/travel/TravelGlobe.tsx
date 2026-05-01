@@ -11,6 +11,7 @@ import { lookupCountryFactSheet } from "@/data/countryFacts";
 import {
   COUNTRY_ALIASES,
   isVisitedCountry,
+  TRAVEL_UNVISITED_LABEL,
   travelStats,
 } from "@/data/travelData";
 import type { CountryFactSheet } from "@/data/countryFacts";
@@ -125,7 +126,7 @@ export function TravelGlobe({ embedded = false }: TravelGlobeProps) {
     const curated = lookupCountryFactSheet(name);
     return {
       name,
-      status: visited ? "Visited" : "Not yet visited",
+      status: visited ? "Visited" : TRAVEL_UNVISITED_LABEL,
       isUnitedStates: isUnitedStates(name),
       facts: curated,
       factsLoading: !curated,
@@ -313,7 +314,8 @@ export function TravelGlobe({ embedded = false }: TravelGlobeProps) {
                   <i className="legend-swatch legend-visited" /> Visited
                 </span>
                 <span>
-                  <i className="legend-swatch legend-unvisited" /> Not yet visited
+                  <i className="legend-swatch legend-unvisited" />{" "}
+                  {TRAVEL_UNVISITED_LABEL}
                 </span>
               </div>
             </div>

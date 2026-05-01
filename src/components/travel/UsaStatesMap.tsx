@@ -8,6 +8,7 @@ import statesTopology from "us-atlas/states-10m.json";
 import {
   normalizedVisitedStates,
   STATE_TOTAL,
+  TRAVEL_UNVISITED_LABEL,
 } from "@/data/travelData";
 
 type StateProperties = {
@@ -70,7 +71,7 @@ export function UsaStatesMap({ isPanel = false }: UsaStatesMapProps) {
             <span className="usa-map__namebar-meta">
               {normalizedVisitedStates.has(activeState)
                 ? "Visited"
-                : "Not yet visited"}
+                : TRAVEL_UNVISITED_LABEL}
             </span>
           </p>
         ) : (
