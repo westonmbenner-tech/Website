@@ -26,7 +26,8 @@ export default function Hero() {
         {/*
           Mobile: copy first, photo below. md+: photo left (order-1), copy right; columns
           stretch so the image height matches the copy block from Stanford line through CTAs.
-          object-cover + bottom-weighted position crops sky while filling the frame.
+          Mobile: slightly higher focal point so the head stays in frame; md+: bottom-weighted
+          to crop sky next to the copy column.
         */}
         <div className="flex flex-col gap-8 text-left md:flex-row md:items-stretch md:justify-center md:gap-4 lg:gap-10">
           <div className="min-w-0 max-w-xl flex-1 pt-0.5 md:order-2">
@@ -79,9 +80,9 @@ export default function Hero() {
                 alt="Weston Benner"
                 fill
                 priority
-                quality={100}
+                unoptimized
                 sizes="(max-width: 767px) min(100vw, 24rem), (max-width: 1024px) 34vw, 352px"
-                className="object-cover object-[50%_100%]"
+                className="object-cover max-md:object-[50%_40%] md:object-[50%_100%]"
               />
             </div>
           </div>
