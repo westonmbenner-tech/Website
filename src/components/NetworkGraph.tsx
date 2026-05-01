@@ -231,7 +231,7 @@ export default function NetworkGraph() {
       ) : (
         <div className="rounded-xl border border-white/[0.05] bg-zinc-900/60 p-3 backdrop-blur">
           <p className="text-xs text-zinc-500">
-            <span className="md:hidden">Tap a node below. </span>
+            <span className="md:hidden">Tap a node below </span>
             <span className="hidden md:inline">Click a node </span>
             to explore connections.
           </p>
