@@ -34,7 +34,7 @@ const lgGridCell: readonly string[] = [
   "lg:col-start-1 lg:row-start-1",
   "lg:col-start-2 lg:row-start-1",
   "lg:col-start-3 lg:row-start-1",
-  "lg:col-start-3 lg:row-start-2 lg:mt-[clamp(2.75rem,7vw,5.5rem)]",
+  "lg:col-start-3 lg:row-start-2 lg:mt-12 xl:mt-14",
   "lg:col-start-2 lg:row-start-2",
 ];
 
@@ -47,7 +47,12 @@ export default function FocusExperienceSection() {
           subtitle="Recurring themes across my work and the experiences behind them. Expand a section to see roles and projects in that area."
         />
 
-        <div className="mt-10 grid auto-rows-min items-start content-start gap-6 sm:mt-14 md:grid-cols-2 lg:grid-cols-3">
+        {/*
+          Cap mosaic + graph width so copy line lengths and the network diagram stay
+          consistent on ultrawide; center when below max.
+        */}
+        <div className="mx-auto mt-10 w-full max-w-[63rem] sm:mt-14">
+        <div className="grid auto-rows-min items-start content-start gap-6 md:grid-cols-2 lg:grid-cols-3">
           {focusAreas.map((area, i) => (
             <details
               key={area.title}
@@ -89,7 +94,9 @@ export default function FocusExperienceSection() {
               </summary>
 
               <div className="border-t border-white/[0.06] px-6 pb-6 pt-0">
-                <p className="mt-4 text-sm leading-relaxed text-zinc-400">{area.description}</p>
+                <p className="mt-4 text-pretty text-sm leading-relaxed text-zinc-400">
+                  {area.description}
+                </p>
 
                 <div className="mt-5 grid gap-4 sm:grid-cols-1">
                   {area.entries.map((entry) => (
@@ -99,7 +106,9 @@ export default function FocusExperienceSection() {
                     >
                       <h4 className="text-sm font-semibold text-white">{entry.title}</h4>
                       <p className="mt-0.5 text-xs font-medium text-zinc-500">{entry.role}</p>
-                      <p className="mt-2 text-sm leading-relaxed text-zinc-400">{entry.description}</p>
+                      <p className="mt-2 text-pretty text-sm leading-relaxed text-zinc-400">
+                        {entry.description}
+                      </p>
                     </div>
                   ))}
                 </div>
@@ -109,6 +118,7 @@ export default function FocusExperienceSection() {
         </div>
 
         <NetworkGraph />
+        </div>
       </div>
     </section>
   );

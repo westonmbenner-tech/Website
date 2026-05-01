@@ -285,7 +285,7 @@ export default function NetworkGraph() {
         </div>
       </div>
 
-      <div className="relative rounded-2xl border border-white/[0.06] bg-zinc-950/60">
+      <div className="relative mx-auto w-full max-w-[720px] rounded-2xl border border-white/[0.06] bg-zinc-950/60">
         {/* Vertical on mobile: panel then graph; desktop overlays panel */}
         <div className="flex flex-col gap-4 p-4 md:block md:p-0 md:pt-4">
           {selectionPanel}

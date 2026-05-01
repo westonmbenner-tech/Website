@@ -24,39 +24,63 @@ export default function Hero() {
 
       <div className="relative z-10 mx-auto w-full max-w-4xl px-6">
         <div className="flex flex-row items-start justify-center gap-4 text-left sm:gap-10">
-          <Image
-            src="/hero/profile.png"
-            alt="Weston Benner"
-            width={220}
-            height={400}
-            priority
-            className="h-[min(36svh,14rem)] w-[4.75rem] shrink-0 rounded-lg object-cover object-[50%_58%] shadow-[0_12px_40px_rgba(0,0,0,0.45)] ring-2 ring-white/15 sm:h-[min(40svh,16rem)] sm:w-[5.25rem] lg:h-[min(42svh,17.5rem)] lg:w-24"
-          />
+          <div
+            className="relative h-[min(36svh,14rem)] w-[4.75rem] shrink-0 overflow-hidden rounded-lg shadow-[0_12px_40px_rgba(0,0,0,0.45)] ring-2 ring-white/15 sm:h-[min(40svh,16rem)] sm:w-[5.25rem] lg:h-[min(42svh,17.5rem)] lg:w-24"
+          >
+            <Image
+              src="/hero/profile.png"
+              alt="Weston Benner"
+              fill
+              priority
+              sizes="(max-width: 640px) 76px, (max-width: 1024px) 84px, 96px"
+              className="object-cover object-[50%_90%] scale-[1.58] sm:scale-[1.52] lg:scale-[1.48]"
+              style={{ transformOrigin: "50% 92%" }}
+            />
+          </div>
 
           <div className="min-w-0 max-w-xl flex-1 pt-0.5">
-            <p className="mb-4 text-sm font-medium tracking-widest uppercase text-cyan-400/80">
+            <p className="mb-3 text-sm font-medium tracking-widest uppercase text-cyan-400/80 sm:mb-4">
               Stanford CS + Math &middot; Healthcare &middot; Economics
             </p>
 
-            <h1 className="text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
-              <a
-                href="https://www.linkedin.com/in/weston-benner/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="transition-colors hover:text-cyan-400"
-              >
-                Weston Benner
-              </a>
-            </h1>
+            {/*
+              minmax(0,max-content) + auto: photo sits tight to the name, not the far edge.
+            */}
+            <div className="grid w-full grid-cols-[minmax(0,max-content)_auto] items-start gap-x-2 sm:gap-x-2.5 lg:gap-x-3">
+              <h1 className="col-start-1 row-start-1 min-w-0 text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
+                <a
+                  href="https://www.linkedin.com/in/weston-benner/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-colors hover:text-cyan-400"
+                >
+                  Weston Benner
+                </a>
+              </h1>
+              <div className="col-start-2 row-start-1 shrink-0 pt-0.5">
+                <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full bg-slate-400/50 p-0.5 shadow-[0_6px_22px_rgba(0,0,0,0.35)] ring-1 ring-slate-500/50 sm:h-[3.75rem] sm:w-[3.75rem] lg:h-16 lg:w-16">
+                  <div className="relative h-full w-full overflow-hidden rounded-full bg-slate-300/70">
+                    <Image
+                      src="/hero/profile-closeup.png"
+                      alt="Weston Benner, professional headshot"
+                      fill
+                      priority
+                      sizes="(max-width: 640px) 56px, (max-width: 1024px) 60px, 64px"
+                      className="object-cover object-[50%_0%]"
+                    />
+                  </div>
+                </div>
+              </div>
 
-            <p className="mt-4 text-sm font-medium tracking-widest uppercase text-cyan-400/80">
-              Palantir | J.P. Morgan | MD Anderson
-            </p>
+              <p className="col-span-2 col-start-1 row-start-2 mt-3 text-sm font-medium tracking-widest uppercase text-cyan-400/80 sm:mt-4">
+                Palantir  |  J.P. Morgan  |  MD Anderson
+              </p>
 
-            <p className="mt-6 text-lg leading-relaxed text-zinc-300 sm:text-xl">
-              Building at the intersection of AI, markets, medicine, and public
-              impact.
-            </p>
+              <p className="col-start-1 row-start-3 mt-6 max-w-full text-lg leading-relaxed text-zinc-300 sm:text-xl">
+                Building at the intersection of AI, markets, medicine, and public
+                impact.
+              </p>
+            </div>
 
             <div className="mt-8 flex flex-wrap items-center justify-start gap-4">
               <button
