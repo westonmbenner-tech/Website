@@ -1,39 +1,7 @@
 # Weston Benner — Personal Portfolio
 
-A polished, modern personal portfolio website built with Next.js, TypeScript, and Tailwind CSS.
+Check it out: [westonbenner.com](westonbenner.com)
 
-## Getting Started
+© 2026 Weston Benner. All rights reserved.
 
-```bash
-npm install
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) in your browser.
-
-## Tech Stack
-
-- **Next.js 16** with App Router
-- **TypeScript**
-- **Tailwind CSS v4**
-- Responsive design with mobile navigation
-- Accessible semantic HTML
-- Smooth scroll navigation
-
-## Project Structure
-
-```
-src/
-├── app/          # Next.js pages, layout, global styles
-├── components/   # Reusable React components
-└── data/         # Typed content data and interfaces
-```
-
-## Scripts
-
-| Command | Description |
-|---------|-------------|
-| `npm run dev` | Start development server |
-| `npm run build` | Create production build |
-| `npm run start` | Serve production build |
-| `npm run lint` | Run ESLint |
+This repository is publicly viewable for portfolio and recruiting purposes only. No code, writing, images, designs, or other content may be copied, modified, distributed, or reused without prior written permission.
