@@ -23,17 +23,17 @@ export default function Hero() {
       </div>
 
       <div className="relative z-10 mx-auto w-full max-w-4xl px-6">
-        <div className="flex flex-col items-center gap-8 text-center sm:flex-row sm:items-center sm:justify-center sm:gap-10 sm:text-left">
+        <div className="flex flex-row items-start justify-center gap-4 text-left sm:gap-10">
           <Image
             src="/hero/profile.png"
             alt="Weston Benner"
-            width={144}
-            height={144}
+            width={220}
+            height={400}
             priority
-            className="h-28 w-28 shrink-0 rounded-full object-cover object-[50%_88%] shadow-[0_12px_40px_rgba(0,0,0,0.45)] ring-2 ring-white/15 sm:h-32 sm:w-32 lg:h-36 lg:w-36"
+            className="h-[min(36svh,14rem)] w-[4.75rem] shrink-0 rounded-lg object-cover object-[50%_58%] shadow-[0_12px_40px_rgba(0,0,0,0.45)] ring-2 ring-white/15 sm:h-[min(40svh,16rem)] sm:w-[5.25rem] lg:h-[min(42svh,17.5rem)] lg:w-24"
           />
 
-          <div className="min-w-0 max-w-xl flex-1">
+          <div className="min-w-0 max-w-xl flex-1 pt-0.5">
             <p className="mb-4 text-sm font-medium tracking-widest uppercase text-cyan-400/80">
               Stanford CS + Math &middot; Healthcare &middot; Economics
             </p>
@@ -50,8 +50,7 @@ export default function Hero() {
             </h1>
 
             <p className="mt-4 text-sm font-medium tracking-widest uppercase text-cyan-400/80">
-              MD Anderson | J.P. Morgan Commercial & Investment Banking |
-              Palantir
+              Palantir | J.P. Morgan | MD Anderson
             </p>
 
             <p className="mt-6 text-lg leading-relaxed text-zinc-300 sm:text-xl">
@@ -59,7 +58,7 @@ export default function Hero() {
               impact.
             </p>
 
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-4 sm:justify-start">
+            <div className="mt-8 flex flex-wrap items-center justify-start gap-4">
               <button
                 type="button"
                 onClick={() => scrollTo("#projects")}
