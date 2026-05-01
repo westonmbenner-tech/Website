@@ -1,0 +1,604 @@
+﻿# Daily Quiz Bowl Tossups
+# Place this file at: public/data/daily-tossups.txt (served as /data/daily-tossups.txt)
+# Format is documented in src/lib/tossupHelpers.ts
+
+1. Literature
+
+This novel's narrator claims that "personality is an unbroken series of successful gestures." Its characters include Jordan Baker, Meyer Wolfsheim, Tom Buchanan, and a mysterious millionaire who throws lavish parties in West Egg. For ten points, name this F. Scott Fitzgerald novel about Jay Gatsby.
+
+Answer: The Great Gatsby
+
+2. History
+
+This empire was ruled by figures such as Pachacuti and Atahualpa. Its road system stretched across the Andes, and it used quipu rather than a written alphabet for record-keeping. For ten points, name this empire conquered by Francisco Pizarro.
+
+Answer: Inca Empire / Incan Empire
+
+3. Science
+
+This organelle contains thylakoids arranged into grana and is the site of the Calvin cycle. It contains chlorophyll and converts light energy into chemical energy. For ten points, name this photosynthetic organelle found in plant cells.
+
+Answer: Chloroplast / Chloroplasts
+
+4. Geography
+
+This country contains the cities of Osaka, Kyoto, and Sapporo. Its highest mountain is Mount Fuji, and its capital is Tokyo. For ten points, name this East Asian island nation.
+
+Answer: Japan / Nippon / Nihon
+
+5. Fine Arts
+
+This artist painted The Persistence of Memory, which features melting clocks in a barren landscape. He was associated with Surrealism and often depicted dreamlike, bizarre scenes. For ten points, name this Spanish painter.
+
+Answer: Salvador DalÃ­ / DalÃ­
+
+6. Mythology
+
+This Greek hero killed the Nemean Lion, captured Cerberus, and cleaned the Augean stables. His famous Twelve Labors were imposed after he was driven mad by Hera. For ten points, name this strongest Greek hero.
+
+Answer: Heracles / Hercules
+
+7. Literature
+
+This play includes the characters Iago, Desdemona, Cassio, and Emilia. Its title character is manipulated into believing his wife has been unfaithful. For ten points, name this Shakespeare tragedy about a Moorish general.
+
+Answer: Othello
+
+8. History
+
+This document begins "When in the Course of human eventsâ€¦" and accuses King George III of tyranny. It was adopted on July 4, 1776. For ten points, name this document announcing American separation from Britain.
+
+Answer: Declaration of Independence / United States Declaration of Independence
+
+9. Science
+
+This law states that the pressure of a gas is inversely proportional to its volume at constant temperature. It is often written as P1V1 = P2V2. For ten points, name this gas law.
+
+Answer: Boyle's Law / Boyle-Mariotte Law
+
+10. Geography
+
+This river flows through Egypt and Sudan and was central to ancient Egyptian civilization. It is often considered the longest river in the world. For ten points, name this African river.
+
+Answer: Nile River / Nile
+
+11. Literature
+
+This epic begins with the word "Sing" and centers on Achilles' rage during the Trojan War. It includes the deaths of Patroclus and Hector. For ten points, name this Greek epic attributed to Homer.
+
+Answer: The Iliad / Iliad
+
+12. History
+
+This leader crossed the Alps with elephants during the Second Punic War. He won major victories against Rome at Trebia, Lake Trasimene, and Cannae. For ten points, name this Carthaginian general.
+
+Answer: Hannibal Barca / Hannibal
+
+13. Science
+
+This process produces two genetically identical daughter cells and includes prophase, metaphase, anaphase, and telophase. For ten points, name this type of cell division used for growth and repair.
+
+Answer: Mitosis / Mitotic division
+
+14. Geography
+
+This country's cities include Munich, Hamburg, and Berlin. It was reunified in 1990 after decades of division between East and West. For ten points, name this European country.
+
+Answer: Germany / Federal Republic of Germany / Deutschland
+
+15. Fine Arts
+
+This composer wrote the "Moonlight Sonata," the Ninth Symphony, and FÃ¼r Elise. He continued composing after losing his hearing. For ten points, name this German composer.
+
+Answer: Ludwig van Beethoven / Beethoven
+
+16. Mythology
+
+This Norse god wields Mjolnir and is associated with thunder. He is the son of Odin and appears frequently in myths involving giants. For ten points, name this hammer-wielding deity.
+
+Answer: Thor
+
+17. Literature
+
+This novel features the characters Elizabeth Bennet, Mr. Darcy, Jane Bennet, and Mr. Bingley. Its opening line declares that a wealthy single man must be "in want of a wife." For ten points, name this Jane Austen novel.
+
+Answer: Pride and Prejudice
+
+18. History
+
+This revolution began in 1789 and included the storming of the Bastille, the Reign of Terror, and the rise of Napoleon. For ten points, name this upheaval that overthrew the Bourbon monarchy.
+
+Answer: French Revolution / Revolution of 1789
+
+19. Science
+
+This molecule carries genetic information and consists of nucleotides containing adenine, thymine, cytosine, and guanine. Its double-helix structure was described by Watson and Crick. For ten points, name this molecule.
+
+Answer: DNA / Deoxyribonucleic acid
+
+20. Geography
+
+This city contains the Colosseum, the Pantheon, and Vatican City. It was the capital of an ancient empire and remains the capital of Italy. For ten points, name this city.
+
+Answer: Rome / Roma
+
+21. Literature
+
+This novel's title character is created by Victor, not named Victor himself. Its subtitle is The Modern Prometheus. For ten points, name this Mary Shelley novel about a scientist and his creature.
+
+Answer: Frankenstein / Frankenstein; or, The Modern Prometheus
+
+22. History
+
+This Chinese dynasty built much of the early Great Wall and standardized weights, measures, and writing. Its first emperor was Qin Shi Huang. For ten points, name this short-lived dynasty that unified China.
+
+Answer: Qin Dynasty / Ch'in Dynasty
+
+23. Science
+
+This particle has a negative charge and orbits the nucleus in simplified atomic models. It was discovered by J. J. Thomson. For ten points, name this subatomic particle.
+
+Answer: Electron / Electrons
+
+24. Geography
+
+This country contains Machu Picchu and the city of Lima. It was once the center of the Inca Empire. For ten points, name this South American country.
+
+Answer: Peru / Republic of Peru
+
+25. Fine Arts
+
+This painting depicts a woman with an enigmatic smile against a distant landscape. It hangs in the Louvre and was painted by Leonardo da Vinci. For ten points, name this famous portrait.
+
+Answer: Mona Lisa / La Gioconda
+
+26. Mythology
+
+This Greek goddess emerged from sea foam and was associated with love and beauty. She was married to Hephaestus but had an affair with Ares. For ten points, name this goddess.
+
+Answer: Aphrodite / Venus
+
+27. Literature
+
+This poem describes a traveler from an "antique land" who sees a shattered statue in the desert. Its inscription declares, "Look on my works, ye Mighty, and despair!" For ten points, name this poem by Percy Shelley.
+
+Answer: Ozymandias
+
+28. History
+
+This war ended with the Treaty of Versailles and involved trench warfare on the Western Front. It began after the assassination of Archduke Franz Ferdinand. For ten points, name this global conflict from 1914 to 1918.
+
+Answer: World War I / First World War / Great War
+
+29. Science
+
+This force pulls objects toward the center of Earth and was described mathematically by Newton's law of universal gravitation. For ten points, name this attractive force between masses.
+
+Answer: Gravity / Gravitation / Gravitational force
+
+30. Geography
+
+This mountain range separates Europe from Asia in conventional geographic definitions. It runs through western Russia. For ten points, name this range.
+
+Answer: Ural Mountains / Urals
+
+31. Literature
+
+This dystopian novel features Big Brother, Room 101, and the Thought Police. Its protagonist Winston Smith works at the Ministry of Truth. For ten points, name this novel by George Orwell.
+
+Answer: 1984 / Nineteen Eighty-Four
+
+32. History
+
+This ruler issued the Edict of Milan and founded a new imperial capital at Byzantium. He was the first Roman emperor to convert to Christianity. For ten points, name this emperor.
+
+Answer: Constantine the Great / Constantine I
+
+33. Science
+
+This element has atomic number 6 and forms the backbone of organic molecules. Its allotropes include diamond and graphite. For ten points, name this element.
+
+Answer: Carbon / C
+
+34. Geography
+
+This strait separates Europe and Africa and connects the Atlantic Ocean to the Mediterranean Sea. For ten points, name this strait near the southern tip of Spain.
+
+Answer: Strait of Gibraltar / Gibraltar Strait
+
+35. Fine Arts
+
+This Dutch painter created Starry Night and many self-portraits. He cut off part of his ear and spent time in Saint-RÃ©my. For ten points, name this Post-Impressionist artist.
+
+Answer: Vincent van Gogh / Van Gogh
+
+36. Mythology
+
+This Egyptian god of the afterlife was murdered by Set and reassembled by Isis. He is often depicted with green skin. For ten points, name this father of Horus.
+
+Answer: Osiris
+
+37. Literature
+
+This novel features the characters Atticus Finch, Scout, Jem, and Boo Radley. It centers partly on the trial of Tom Robinson. For ten points, name this Harper Lee novel.
+
+Answer: To Kill a Mockingbird
+
+38. History
+
+This event began in 1215 when English barons forced King John to accept limits on royal power. For ten points, name this charter often associated with the development of constitutional government.
+
+Answer: Magna Carta / Great Charter
+
+39. Science
+
+This quantity equals mass times acceleration and is measured in newtons. For ten points, name this physical quantity represented by F in Newton's second law.
+
+Answer: Force
+
+40. Geography
+
+This country contains the cities of Toronto, Vancouver, Montreal, and Ottawa. It is the second-largest country by land area. For ten points, name this country north of the United States.
+
+Answer: Canada
+
+41. Literature
+
+This novella features Gregor Samsa, who wakes up transformed into a giant insect-like creature. For ten points, name this work by Franz Kafka.
+
+Answer: The Metamorphosis / Die Verwandlung
+
+42. History
+
+This plague devastated Europe in the 14th century and was caused by the bacterium Yersinia pestis. For ten points, name this pandemic also called the Black Death.
+
+Answer: Black Death / Bubonic plague / Plague
+
+43. Science
+
+This type of bond involves the sharing of electron pairs between atoms. It contrasts with ionic bonding. For ten points, name this chemical bond.
+
+Answer: Covalent bond / Covalent bonding
+
+44. Geography
+
+This desert covers much of northern Africa and includes parts of Algeria, Egypt, Libya, and Mali. For ten points, name this largest hot desert in the world.
+
+Answer: Sahara Desert / Sahara
+
+45. Fine Arts
+
+This composer wrote The Magic Flute, Don Giovanni, and Eine kleine Nachtmusik. He was a child prodigy from Salzburg. For ten points, name this Austrian composer.
+
+Answer: Wolfgang Amadeus Mozart / Mozart
+
+46. Mythology
+
+This figure flew too close to the sun using wings made by his father Daedalus. The wax melted, causing him to fall into the sea. For ten points, name this mythological youth.
+
+Answer: Icarus
+
+47. Literature
+
+This novel follows Janie Crawford through three marriages and is set partly in Eatonville, Florida. For ten points, name this Zora Neale Hurston novel.
+
+Answer: Their Eyes Were Watching God
+
+48. History
+
+This movement included figures such as Martin Luther, John Calvin, and Huldrych Zwingli. It began as a challenge to Catholic Church practices such as indulgences. For ten points, name this 16th-century religious movement.
+
+Answer: Protestant Reformation / Reformation
+
+49. Science
+
+This organ pumps blood through the circulatory system and contains ventricles and atria. For ten points, name this muscular organ.
+
+Answer: Heart
+
+50. Geography
+
+This country's capital is Wellington, and its largest city is Auckland. It consists mainly of two large islands in the southwestern Pacific. For ten points, name this country.
+
+Answer: New Zealand / Aotearoa
+
+51. Literature
+
+This epic poem follows Satan after his fall from Heaven and includes Adam and Eve in Eden. For ten points, name this work by John Milton.
+
+Answer: Paradise Lost
+
+52. History
+
+This American president issued the Emancipation Proclamation and led the Union during the Civil War. For ten points, name this 16th president of the United States.
+
+Answer: Abraham Lincoln / Lincoln
+
+53. Science
+
+This scientist proposed natural selection after studying species including finches and published On the Origin of Species. For ten points, name this British naturalist.
+
+Answer: Charles Darwin / Darwin
+
+54. Geography
+
+This river flows through London and is crossed by Tower Bridge. For ten points, name this English river.
+
+Answer: River Thames / Thames
+
+55. Fine Arts
+
+This art movement included Claude Monet and Pierre-Auguste Renoir and emphasized light, color, and visible brushstrokes. For ten points, name this 19th-century movement.
+
+Answer: Impressionism / Impressionist movement
+
+56. Mythology
+
+This Greek god ruled the sea and carried a trident. He was the brother of Zeus and Hades. For ten points, name this deity.
+
+Answer: Poseidon / Neptune
+
+57. Literature
+
+This novel's characters include Piggy, Ralph, Jack, and Simon. A group of boys stranded on an island descends into violence. For ten points, name this novel by William Golding.
+
+Answer: Lord of the Flies
+
+58. History
+
+This empire's capital was Tenochtitlan, and its ruler Moctezuma II encountered HernÃ¡n CortÃ©s. For ten points, name this Mesoamerican empire.
+
+Answer: Aztec Empire / Mexica Empire / Aztecs
+
+59. Science
+
+This scale measures acidity and alkalinity from 0 to 14. A value below 7 is acidic, while above 7 is basic. For ten points, name this scale.
+
+Answer: pH scale / pH
+
+60. Geography
+
+This city is divided by the Bosporus and was formerly known as Byzantium and Constantinople. For ten points, name this largest city in Turkey.
+
+Answer: Istanbul / Constantinople / Byzantium
+
+61. Literature
+
+This play features three witches who predict that the title character will become king. Lady Macbeth urges him to murder Duncan. For ten points, name this Shakespeare tragedy.
+
+Answer: Macbeth
+
+62. History
+
+This civilization developed cuneiform writing and city-states such as Ur and Uruk. It flourished between the Tigris and Euphrates rivers. For ten points, name this ancient civilization.
+
+Answer: Sumer / Sumerian civilization
+
+63. Science
+
+This planet has the Great Red Spot and is the largest planet in the Solar System. For ten points, name this gas giant.
+
+Answer: Jupiter
+
+64. Geography
+
+This African country has Addis Ababa as its capital and was historically associated with the kingdom of Aksum. For ten points, name this country in the Horn of Africa.
+
+Answer: Ethiopia / Federal Democratic Republic of Ethiopia
+
+65. Fine Arts
+
+This sculptor created David and painted the ceiling of the Sistine Chapel. For ten points, name this Renaissance artist.
+
+Answer: Michelangelo Buonarroti / Michelangelo
+
+66. Mythology
+
+This Greek hero solved the riddle of the Sphinx and later discovered he had killed his father and married his mother. For ten points, name this tragic king of Thebes.
+
+Answer: Oedipus
+
+67. Literature
+
+This novel features the Joad family traveling west during the Dust Bowl. For ten points, name this John Steinbeck novel about migrant workers during the Great Depression.
+
+Answer: The Grapes of Wrath
+
+68. History
+
+This conflict lasted from 1950 to 1953 and ended with an armistice rather than a peace treaty. It divided a peninsula along the 38th parallel. For ten points, name this war.
+
+Answer: Korean War
+
+69. Science
+
+This structure controls what enters and leaves the cell and is composed largely of a phospholipid bilayer. For ten points, name this boundary of the cell.
+
+Answer: Cell membrane / Plasma membrane
+
+70. Geography
+
+This South American country contains Patagonia, Buenos Aires, and the Pampas. For ten points, name this country.
+
+Answer: Argentina / Argentine Republic
+
+71. Literature
+
+This author created Sherlock Holmes and Dr. Watson. For ten points, name this British writer of detective fiction.
+
+Answer: Arthur Conan Doyle / Sir Arthur Conan Doyle / Conan Doyle
+
+72. History
+
+This naval battle in 1805 saw Horatio Nelson defeat the combined French and Spanish fleets. For ten points, name this battle that secured British naval supremacy.
+
+Answer: Battle of Trafalgar / Trafalgar
+
+73. Science
+
+This enzyme unwinds DNA during replication, allowing each strand to serve as a template. For ten points, name this enzyme.
+
+Answer: Helicase / DNA helicase
+
+74. Geography
+
+This country's capital is Bangkok, and it was historically known as Siam. For ten points, name this Southeast Asian country.
+
+Answer: Thailand / Siam
+
+75. Fine Arts
+
+This painting by Edvard Munch shows a figure holding its head beneath a blood-red sky. For ten points, name this expressionist painting.
+
+Answer: The Scream
+
+76. Mythology
+
+This Roman god of gates, beginnings, and transitions is often depicted with two faces. The month January is named after him. For ten points, name this god.
+
+Answer: Janus
+
+77. Literature
+
+This novel features Captain Ahab's obsessive pursuit of a white whale. For ten points, name this Herman Melville novel.
+
+Answer: Moby-Dick / Moby Dick; or, The Whale
+
+78. History
+
+This empire was founded by Osman I and captured Constantinople in 1453 under Mehmed II. For ten points, name this empire that ruled much of the Middle East, North Africa, and southeastern Europe.
+
+Answer: Ottoman Empire / Turkish Empire
+
+79. Science
+
+This blood type is considered the universal donor for red blood cells when Rh-negative. For ten points, name this blood type.
+
+Answer: O negative / O-negative / Type O negative
+
+80. Geography
+
+This country contains the Great Barrier Reef and cities such as Sydney, Melbourne, and Canberra. For ten points, name this country and continent.
+
+Answer: Australia / Commonwealth of Australia
+
+81. Literature
+
+This character says "I am no bird; and no net ensnares me." She works as a governess at Thornfield Hall and falls in love with Mr. Rochester. For ten points, name this Charlotte BrontÃ« heroine.
+
+Answer: Jane Eyre
+
+82. History
+
+This code of laws from ancient Babylon is famous for the phrase "an eye for an eye." For ten points, name this legal code associated with a Babylonian king.
+
+Answer: Code of Hammurabi / Hammurabi's Code
+
+83. Science
+
+This phenomenon occurs when waves bend around obstacles or spread after passing through a narrow opening. For ten points, name this wave behavior.
+
+Answer: Diffraction
+
+84. Geography
+
+This European country contains Porto and Lisbon and occupies the western edge of the Iberian Peninsula. For ten points, name this country.
+
+Answer: Portugal / Portuguese Republic
+
+85. Fine Arts
+
+This ballet by Tchaikovsky features Odette, Odile, and Prince Siegfried. For ten points, name this ballet about an enchanted princess transformed into a bird.
+
+Answer: Swan Lake
+
+86. Mythology
+
+This goddess of wisdom was born from Zeus's head and is associated with owls and the city of Athens. For ten points, name this Greek goddess.
+
+Answer: Athena / Athene / Minerva
+
+87. Literature
+
+This author wrote Beloved, Song of Solomon, and The Bluest Eye. She won the Nobel Prize in Literature in 1993. For ten points, name this American novelist.
+
+Answer: Toni Morrison / Chloe Wofford
+
+88. History
+
+This trade route connected East Asia to the Mediterranean and carried goods such as silk, spices, and paper. For ten points, name this network of routes across Eurasia.
+
+Answer: Silk Road / Silk Roads
+
+89. Science
+
+This principle states that no two electrons in an atom can have the same set of four quantum numbers. For ten points, name this principle.
+
+Answer: Pauli exclusion principle / Pauli principle
+
+90. Geography
+
+This lake borders Uganda, Tanzania, and Kenya and is the source region of the White Nile. For ten points, name this largest lake in Africa.
+
+Answer: Lake Victoria / Victoria Nyanza
+
+91. Literature
+
+This play includes Estragon and Vladimir, who repeatedly wait for a title character who never arrives. For ten points, name this absurdist play by Samuel Beckett.
+
+Answer: Waiting for Godot
+
+92. History
+
+This event saw Allied troops land on Normandy beaches including Omaha and Utah on June 6, 1944. For ten points, name this World War II invasion.
+
+Answer: D-Day / Normandy landings / Operation Overlord
+
+93. Science
+
+This part of the brain coordinates balance and fine motor control. Its name comes from Latin for "little brain." For ten points, name this structure.
+
+Answer: Cerebellum
+
+94. Geography
+
+This country's capital is Reykjavik, and it lies on the Mid-Atlantic Ridge. For ten points, name this Nordic island nation.
+
+Answer: Iceland / Republic of Iceland
+
+95. Fine Arts
+
+This architect designed Fallingwater, a house built partly over a waterfall in Pennsylvania. For ten points, name this American architect.
+
+Answer: Frank Lloyd Wright / Wright
+
+96. Mythology
+
+This trickster figure in Norse mythology is the father of Fenrir, Hel, and JÃ¶rmungandr. For ten points, name this shape-shifting god.
+
+Answer: Loki
+
+97. Literature
+
+This novel follows Raskolnikov after he murders a pawnbroker and struggles with guilt. For ten points, name this Fyodor Dostoevsky novel.
+
+Answer: Crime and Punishment
+
+98. History
+
+This queen ruled England for over four decades and lent her name to an era associated with industrialization, empire, and strict social norms. For ten points, name this British monarch.
+
+Answer: Queen Victoria / Victoria
+
+99. Science
+
+This equation relates energy and mass using the speed of light squared. For ten points, name this famous formula associated with Einstein.
+
+Answer: E = mc^2 / Mass-energy equivalence / Einstein's mass-energy equation
+
+100. Geography
+
+This city is home to the Acropolis and was a major center of ancient philosophy, democracy, and drama. For ten points, name this capital of Greece.
+
+Answer: Athens / AthÃ­na
+
