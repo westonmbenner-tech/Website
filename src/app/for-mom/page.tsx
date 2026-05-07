@@ -1,10 +1,18 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { momSongs } from "@/lib/momSongs";
 
-type ApiSongResponse = {
+type SongItem = {
   id: string;
+  key: string;
+  title: string;
+  size: number | null;
+  lastModified: string | null;
+};
+
+type SongUrlResponse = {
+  id: string;
+  key: string;
   title: string;
   url: string;
 };
@@ -35,22 +43,27 @@ function saveUnlockedToStorage(ids: string[]) {
   }
 }
 
-function pickRandomSongId(unlockedIds: string[]): string | null {
+function pickRandomSongId(songs: SongItem[], unlockedIds: string[]): string | null {
+  if (songs.length === 0) return null;
+
   if (unlockedIds.length === 0) {
-    const inscription = momSongs.find((song) => song.key === INSCRIPTION_KEY);
+    const inscription = songs.find((song) => song.key === INSCRIPTION_KEY);
     if (inscription) return inscription.id;
   }
-  const locked = momSongs.filter((s) => !unlockedIds.includes(s.id));
-  const pool = locked.length > 0 ? locked : momSongs;
-  if (pool.length === 0) return null;
+
+  const locked = songs.filter((s) => !unlockedIds.includes(s.id));
+  const pool = locked.length > 0 ? locked : songs;
   const idx = Math.floor(Math.random() * pool.length);
   return pool[idx]?.id ?? null;
 }
 
 export default function MomVaultPage() {
+  const [songs, setSongs] = useState<SongItem[]>([]);
+  const [songsLoading, setSongsLoading] = useState(true);
+  const [songsError, setSongsError] = useState<string | null>(null);
   const [password, setPassword] = useState("");
   const [unlockedIds, setUnlockedIds] = useState<string[]>([]);
-  const [nowPlaying, setNowPlaying] = useState<ApiSongResponse | null>(null);
+  const [nowPlaying, setNowPlaying] = useState<SongUrlResponse | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [hasTriedPassword, setHasTriedPassword] = useState(false);
@@ -63,15 +76,47 @@ export default function MomVaultPage() {
   }, []);
 
   useEffect(() => {
+    async function loadSongs() {
+      setSongsLoading(true);
+      setSongsError(null);
+
+      try {
+        const res = await fetch("/api/mom-songs", { method: "GET" });
+        const data = (await res.json().catch(() => null)) as
+          | { songs?: SongItem[]; error?: string }
+          | null;
+
+        if (!res.ok || !data?.songs) {
+          setSongsError(
+            data?.error ?? "Could not load songs right now. Please try again.",
+          );
+          return;
+        }
+
+        setSongs(data.songs);
+      } catch {
+        setSongsError("Could not load songs right now. Please try again.");
+      } finally {
+        setSongsLoading(false);
+      }
+    }
+
+    void loadSongs();
+  }, []);
+
+  useEffect(() => {
     saveUnlockedToStorage(unlockedIds);
   }, [unlockedIds]);
 
-  const totalSongs = momSongs.length;
-  const unlockedCount = unlockedIds.length;
+  const totalSongs = songs.length;
+  const unlockedCount = useMemo(
+    () => songs.filter((song) => unlockedIds.includes(song.id)).length,
+    [songs, unlockedIds],
+  );
 
   const unlockedSongs = useMemo(
-    () => momSongs.filter((s) => unlockedIds.includes(s.id)),
-    [unlockedIds],
+    () => songs.filter((s) => unlockedIds.includes(s.id)),
+    [songs, unlockedIds],
   );
 
   async function fetchSong(songId: string) {
@@ -90,21 +135,23 @@ export default function MomVaultPage() {
 
       const data = (await res.json().catch(() => null)) as
         | { error?: string; details?: string }
-        | ApiSongResponse
+        | SongUrlResponse
         | null;
 
       if (!res.ok || !data || "error" in data) {
-        const message =
-          (data && "error" in data && data.error) ||
-          "Sorry, this song could not be loaded right now.";
         if (res.status === 401) {
           setHasTriedPassword(true);
+          setError("That passcode does not look right. Try again?");
+          return;
         }
-        setError(message);
+        setError(
+          (data && "error" in data && data.error) ||
+            "Sorry, this song could not be loaded right now.",
+        );
         return;
       }
 
-      const song = data as ApiSongResponse;
+      const song = data as SongUrlResponse;
       setIsAuthenticated(true);
       window.sessionStorage.setItem(SESSION_AUTH_KEY, "1");
       window.sessionStorage.setItem(SESSION_PASSWORD_KEY, activePassword);
@@ -121,9 +168,15 @@ export default function MomVaultPage() {
   }
 
   async function handlePlayRandom() {
-    const songId = pickRandomSongId(unlockedIds);
+    const songId = pickRandomSongId(songs, unlockedIds);
     if (!songId) {
-      setError("No songs are configured yet.");
+      if (songsLoading) {
+        setError("Still loading songs. Please wait a moment.");
+      } else if (songs.length === 0) {
+        setError("No songs found yet in your bucket.");
+      } else {
+        setError("No songs are configured yet.");
+      }
       return;
     }
     await fetchSong(songId);
@@ -183,7 +236,7 @@ export default function MomVaultPage() {
                 <button
                   type="button"
                   onClick={handlePlayRandom}
-                  disabled={isLoading}
+                  disabled={isLoading || songsLoading || songs.length === 0}
                   className="inline-flex items-center justify-center rounded-xl bg-emerald-400 px-4 py-2.5 text-sm font-medium text-slate-950 shadow-md shadow-emerald-500/30 transition hover:bg-emerald-300 hover:shadow-lg hover:shadow-emerald-500/40 disabled:opacity-60 disabled:hover:shadow-none"
                 >
                   {isLoading ? "Loading..." : "Unlock and play"}
@@ -195,7 +248,7 @@ export default function MomVaultPage() {
               <button
                 type="button"
                 onClick={handlePlayRandom}
-                disabled={isLoading}
+                disabled={isLoading || songsLoading || songs.length === 0}
                 className="inline-flex items-center justify-center rounded-xl bg-emerald-400 px-4 py-2.5 text-sm font-medium text-slate-950 shadow-md shadow-emerald-500/30 transition hover:bg-emerald-300 hover:shadow-lg hover:shadow-emerald-500/40 disabled:opacity-60 disabled:hover:shadow-none"
               >
                 {isLoading ? "Loading..." : "Play a random song"}
@@ -205,6 +258,12 @@ export default function MomVaultPage() {
           {passcodeError && (
             <p className="text-xs text-rose-300 mt-1">{passcodeError}</p>
           )}
+          {songsLoading ? (
+            <p className="text-xs text-slate-400 mt-1">Loading songs from vault...</p>
+          ) : null}
+          {songsError ? (
+            <p className="text-xs text-rose-300 mt-1">{songsError}</p>
+          ) : null}
           {error && !passcodeError && (
             <p className="text-xs text-rose-300 mt-1">{error}</p>
           )}
@@ -259,8 +318,9 @@ export default function MomVaultPage() {
           </p>
           {unlockedSongs.length === 0 ? (
             <p className="text-xs text-slate-500">
-              As you listen, songs you&apos;ve heard will collect here so you
-              can replay them anytime.
+              {songs.length === 0
+                ? "Your vault is empty right now. Upload audio files to your R2 bucket and refresh."
+                : "As you listen, songs you've heard will collect here so you can replay them anytime."}
             </p>
           ) : (
             <div className="flex flex-wrap gap-2">

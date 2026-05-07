@@ -1,39 +1,22 @@
 import { NextRequest, NextResponse } from "next/server";
-import { S3Client, GetObjectCommand } from "@aws-sdk/client-s3";
+import { GetObjectCommand } from "@aws-sdk/client-s3";
 import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
-import { momSongs } from "@/lib/momSongs";
+import {
+  createR2Client,
+  getR2BucketName,
+  isAllowedAudioKey,
+  prettyTitleFromFilename,
+} from "@/lib/r2";
 
 export const runtime = "nodejs";
 
-function getEnv(name: string) {
-  const value = process.env[name];
-  if (!value) {
-    if (process.env.NODE_ENV !== "production") {
-      // In development, surface missing envs clearly in the response.
-      throw new Error(`Missing required environment variable: ${name}`);
-    }
+function getPassword(): string {
+  const value = process.env.MOM_VAULT_PASSWORD;
+  if (value) return value;
+  if (process.env.NODE_ENV !== "production") {
+    throw new Error("Missing required environment variable: MOM_VAULT_PASSWORD");
   }
-  return value;
-}
-
-function createS3Client() {
-  const accountId = getEnv("R2_ACCOUNT_ID");
-  const accessKeyId = getEnv("R2_ACCESS_KEY_ID");
-  const secretAccessKey = getEnv("R2_SECRET_ACCESS_KEY");
-
-  if (!accountId || !accessKeyId || !secretAccessKey) {
-    // In production this will be a generic error; in dev, getEnv throws earlier with specifics.
-    throw new Error("R2 credentials are not fully configured.");
-  }
-
-  return new S3Client({
-    region: "auto",
-    endpoint: `https://${accountId}.r2.cloudflarestorage.com`,
-    credentials: {
-      accessKeyId,
-      secretAccessKey,
-    },
-  });
+  throw new Error("Server configuration error.");
 }
 
 export async function POST(req: NextRequest) {
@@ -49,29 +32,28 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const expectedPassword = getEnv("MOM_VAULT_PASSWORD");
-    if (!expectedPassword || body.password !== expectedPassword) {
+    const songId = body.songId.trim();
+    if (!isAllowedAudioKey(songId)) {
+      return NextResponse.json(
+        { error: "Song id must be a valid audio file key." },
+        { status: 400 },
+      );
+    }
+
+    const expectedPassword = getPassword();
+    if (body.password !== expectedPassword) {
       return NextResponse.json(
         { error: "Incorrect password." },
         { status: 401 },
       );
     }
 
-    const song = momSongs.find((s) => s.id === body.songId);
-    if (!song) {
-      return NextResponse.json({ error: "Song not found." }, { status: 404 });
-    }
-
-    const bucket = getEnv("R2_BUCKET_NAME");
-    if (!bucket) {
-      throw new Error("R2 bucket name is not configured.");
-    }
-
-    const client = createS3Client();
+    const bucket = getR2BucketName();
+    const client = createR2Client();
 
     const command = new GetObjectCommand({
       Bucket: bucket,
-      Key: song.key,
+      Key: songId,
     });
 
     const url = await getSignedUrl(client, command, {
@@ -79,8 +61,9 @@ export async function POST(req: NextRequest) {
     });
 
     return NextResponse.json({
-      id: song.id,
-      title: song.title,
+      id: songId,
+      key: songId,
+      title: prettyTitleFromFilename(songId),
       url,
     });
   } catch (err: unknown) {
