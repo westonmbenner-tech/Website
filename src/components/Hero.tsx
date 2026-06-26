@@ -32,7 +32,7 @@ export default function Hero() {
         <div className="flex flex-col gap-8 text-left md:flex-row md:items-stretch md:justify-center md:gap-4 lg:gap-10">
           <div className="min-w-0 max-w-xl flex-1 pt-0.5 md:order-2">
             <p className="mb-3 text-sm font-medium tracking-widest uppercase text-cyan-400/80 sm:mb-4">
-              Stanford CS + Math &middot; Healthcare &middot; Economics
+              Stanford CS &middot; Healthcare &middot; Economics
             </p>
 
             <h1 className="min-w-0 text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
