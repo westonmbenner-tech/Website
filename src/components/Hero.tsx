@@ -2,7 +2,11 @@
 
 import Image from "next/image";
 
-export default function Hero() {
+type HeroProps = {
+  profileSrc: string;
+};
+
+export default function Hero({ profileSrc }: HeroProps) {
   const scrollTo = (id: string) => {
     const el = document.querySelector(id);
     el?.scrollIntoView({ behavior: "smooth" });
@@ -76,7 +80,7 @@ export default function Hero() {
           <div className="order-2 flex min-h-0 w-full shrink-0 flex-col md:order-1 md:w-[clamp(10.5rem,34vw,22rem)]">
             <div className="relative mx-auto aspect-[3/4] w-full max-w-sm max-h-[min(52svh,22rem)] overflow-hidden rounded-xl shadow-[0_18px_52px_rgba(0,0,0,0.48)] ring-2 ring-white/15 md:mx-0 md:aspect-auto md:h-full md:max-h-none md:max-w-none">
               <Image
-                src="/hero/profile.png"
+                src={profileSrc}
                 alt="Weston Benner"
                 fill
                 priority

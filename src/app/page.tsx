@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import { getHeroProfileSrc } from "@/lib/heroProfile";
 import AboutSection from "@/components/AboutSection";
 import FocusExperienceSection from "@/components/FocusExperienceSection";
 import ProjectsSection from "@/components/ProjectsSection";
@@ -52,11 +53,13 @@ const noteWriting = getFieldNote("fn-writing");
 const noteContact = getFieldNote("fn-contact");
 
 export default function Home() {
+  const profileSrc = getHeroProfileSrc();
+
   return (
     <>
       <Navbar />
       <main className="flex-1">
-        <Hero />
+        <Hero profileSrc={profileSrc} />
         {noteAi ? (
           <FieldNoteBetween note={noteAi} rotationDeg={4} align="start" />
         ) : null}
