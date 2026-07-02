@@ -3,7 +3,7 @@ import path from "node:path";
 
 const HERO_DIR = path.join(process.cwd(), "public", "hero");
 const PROFILE_BASENAME = "profile";
-const IMAGE_EXTENSIONS = [".jpg", ".jpeg", ".png", ".webp", ".avif"] as const;
+const IMAGE_EXTENSIONS = [".webp", ".png", ".avif", ".jpg", ".jpeg"] as const;
 
 export function getHeroProfileSrc(): string {
   for (const ext of IMAGE_EXTENSIONS) {

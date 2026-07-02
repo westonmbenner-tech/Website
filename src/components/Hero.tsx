@@ -28,12 +28,10 @@ export default function Hero({ profileSrc }: HeroProps) {
 
       <div className="relative z-10 mx-auto w-full max-w-4xl px-6">
         {/*
-          Mobile: copy first, photo below. md+: photo left (order-1), copy right; columns
-          stretch so the image height matches the copy block from Stanford line through CTAs.
-          Mobile: slightly higher focal point so the head stays in frame; md+: bottom-weighted
-          to crop sky next to the copy column.
+          Mobile: copy first, circular photo below. md+: photo left (order-1), copy right.
+          Profile asset is pre-cropped to 800x800 with face framing, smoothing, and border.
         */}
-        <div className="flex flex-col gap-8 text-left md:flex-row md:items-stretch md:justify-center md:gap-4 lg:gap-10">
+        <div className="flex flex-col gap-8 text-left md:flex-row md:items-center md:justify-center md:gap-4 lg:gap-10">
           <div className="min-w-0 max-w-xl flex-1 pt-0.5 md:order-2">
             <p className="mb-3 text-sm font-medium tracking-widest uppercase text-cyan-400/80 sm:mb-4">
               Stanford CS &middot; Healthcare &middot; Economics
@@ -77,16 +75,16 @@ export default function Hero({ profileSrc }: HeroProps) {
             </div>
           </div>
 
-          <div className="order-2 flex min-h-0 w-full shrink-0 flex-col md:order-1 md:w-[clamp(10.5rem,34vw,22rem)]">
-            <div className="relative mx-auto aspect-[3/4] w-full max-w-sm max-h-[min(52svh,22rem)] overflow-hidden rounded-xl shadow-[0_18px_52px_rgba(0,0,0,0.48)] ring-2 ring-white/15 md:mx-0 md:aspect-auto md:h-full md:max-h-none md:max-w-none">
+          <div className="order-2 flex w-full shrink-0 justify-center md:order-1 md:w-[clamp(10rem,28vw,18rem)]">
+            <div className="relative aspect-square w-full max-w-[min(16rem,52svh)] md:max-w-none">
               <Image
                 src={profileSrc}
                 alt="Weston Benner"
                 fill
                 priority
                 unoptimized
-                sizes="(max-width: 767px) min(100vw, 24rem), (max-width: 1024px) 34vw, 352px"
-                className="object-cover max-md:object-[50%_40%] md:object-[50%_100%]"
+                sizes="(max-width: 767px) min(100vw, 16rem), (max-width: 1024px) 28vw, 288px"
+                className="object-contain"
               />
             </div>
           </div>
